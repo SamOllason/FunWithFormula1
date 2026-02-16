@@ -1,0 +1,228 @@
+@F1Sim.Api_HostAddress = http://localhost:5254
+
+### Health Check
+GET {{F1Sim.Api_HostAddress}}/
+Accept: application/json
+
+###
+
+# ======================
+# TEAMS ENDPOINTS
+# ======================
+
+### Get All Teams
+GET {{F1Sim.Api_HostAddress}}/api/teams
+Accept: application/json
+
+###
+
+### Get Team by ID
+GET {{F1Sim.Api_HostAddress}}/api/teams/1
+Accept: application/json
+
+###
+
+### Create Team - Mercedes
+POST {{F1Sim.Api_HostAddress}}/api/teams
+Content-Type: application/json
+
+{
+  "name": "Mercedes-AMG Petronas F1 Team",
+  "constructor": "Mercedes",
+  "foundedYear": 2010,
+  "baseLocation": "Brackley, United Kingdom",
+  "championshipsWon": 8
+}
+
+###
+
+### Create Team - Red Bull
+POST {{F1Sim.Api_HostAddress}}/api/teams
+Content-Type: application/json
+
+{
+  "name": "Oracle Red Bull Racing",
+  "constructor": "Red Bull Racing",
+  "foundedYear": 2005,
+  "baseLocation": "Milton Keynes, United Kingdom",
+  "championshipsWon": 6
+}
+
+###
+
+### Create Team - Ferrari
+POST {{F1Sim.Api_HostAddress}}/api/teams
+Content-Type: application/json
+
+{
+  "name": "Scuderia Ferrari",
+  "constructor": "Ferrari",
+  "foundedYear": 1950,
+  "baseLocation": "Maranello, Italy",
+  "championshipsWon": 16
+}
+
+###
+
+### Update Team
+PUT {{F1Sim.Api_HostAddress}}/api/teams/1
+Content-Type: application/json
+
+{
+  "name": "Mercedes-AMG Petronas F1 Team",
+  "constructor": "Mercedes",
+  "foundedYear": 2010,
+  "baseLocation": "Brackley, United Kingdom",
+  "championshipsWon": 9
+}
+
+###
+
+### Delete Team
+DELETE {{F1Sim.Api_HostAddress}}/api/teams/1
+
+###
+
+# ======================
+# DRIVERS ENDPOINTS
+# ======================
+
+### Get All Drivers
+GET {{F1Sim.Api_HostAddress}}/api/drivers
+Accept: application/json
+
+###
+
+### Get Driver by ID
+GET {{F1Sim.Api_HostAddress}}/api/drivers/1
+Accept: application/json
+
+###
+
+### Create Driver - Lewis Hamilton
+POST {{F1Sim.Api_HostAddress}}/api/drivers
+Content-Type: application/json
+
+{
+  "firstName": "Lewis",
+  "lastName": "Hamilton",
+  "nationality": "British",
+  "dateOfBirth": "1985-01-07",
+  "driverNumber": 44,
+  "teamId": 1
+}
+
+###
+
+### Create Driver - Max Verstappen
+POST {{F1Sim.Api_HostAddress}}/api/drivers
+Content-Type: application/json
+
+{
+  "firstName": "Max",
+  "lastName": "Verstappen",
+  "nationality": "Dutch",
+  "dateOfBirth": "1997-09-30",
+  "driverNumber": 1,
+  "teamId": 2
+}
+
+###
+
+### Create Driver - Charles Leclerc
+POST {{F1Sim.Api_HostAddress}}/api/drivers
+Content-Type: application/json
+
+{
+  "firstName": "Charles",
+  "lastName": "Leclerc",
+  "nationality": "Monégasque",
+  "dateOfBirth": "1997-10-16",
+  "driverNumber": 16,
+  "teamId": 3
+}
+
+###
+
+### Create Driver - No Team
+POST {{F1Sim.Api_HostAddress}}/api/drivers
+Content-Type: application/json
+
+{
+  "firstName": "Daniel",
+  "lastName": "Ricciardo",
+  "nationality": "Australian",
+  "dateOfBirth": "1989-07-01",
+  "driverNumber": 3,
+  "teamId": null
+}
+
+###
+
+### Update Driver
+PUT {{F1Sim.Api_HostAddress}}/api/drivers/1
+Content-Type: application/json
+
+{
+  "firstName": "Lewis",
+  "lastName": "Hamilton",
+  "nationality": "British",
+  "dateOfBirth": "1985-01-07",
+  "driverNumber": 44,
+  "teamId": 3
+}
+
+###
+
+### Delete Driver
+DELETE {{F1Sim.Api_HostAddress}}/api/drivers/1
+
+###
+
+# ======================
+# VALIDATION TESTS
+# ======================
+
+### Create Driver - Invalid Driver Number (too high)
+POST {{F1Sim.Api_HostAddress}}/api/drivers
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "Driver",
+  "nationality": "American",
+  "dateOfBirth": "1990-01-01",
+  "driverNumber": 100,
+  "teamId": null
+}
+
+###
+
+### Create Driver - Duplicate Driver Number
+POST {{F1Sim.Api_HostAddress}}/api/drivers
+Content-Type: application/json
+
+{
+  "firstName": "Another",
+  "lastName": "Driver",
+  "nationality": "German",
+  "dateOfBirth": "1995-05-15",
+  "driverNumber": 44,
+  "teamId": null
+}
+
+###
+
+### Create Team - Duplicate Name
+POST {{F1Sim.Api_HostAddress}}/api/teams
+Content-Type: application/json
+
+{
+  "name": "Mercedes-AMG Petronas F1 Team",
+  "constructor": "Mercedes Duplicate",
+  "foundedYear": 2010,
+  "baseLocation": "Brackley, United Kingdom",
+  "championshipsWon": 0
+}
+
+###

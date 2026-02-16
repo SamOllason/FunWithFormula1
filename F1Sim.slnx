@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <File Path="docs/learning_notes.md" />
+    <File Path="docs/README.md" />
+    <Project Path="src/F1Sim.Api/F1Sim.Api.csproj" />
+    <Project Path="src/F1Sim.Domain/F1Sim.Domain.csproj" />
+    <Project Path="src/F1Sim.Infrastructure/F1Sim.Infrastructure.csproj" />
+  </Folder>
+</Solution>
