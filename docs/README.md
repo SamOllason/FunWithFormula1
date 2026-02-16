@@ -6,12 +6,13 @@ A full-stack platform for F1 race strategy simulation and AI-powered race engine
 
 Build a production-grade system that demonstrates senior-level engineering capabilities across:
 
-- **Backend Architecture**: Robust .NET Core API with clean architecture patterns
+- **Modern Backend Architecture**: Robust .NET 10 API with clean architecture and C# 14 features
 - **Data Engineering**: Complex relational modeling with EF Core and PostgreSQL
 - **Full-Stack Development**: React-based dashboard with real-time updates
 - **System Design**: Background jobs, caching, queues, and distributed processing
 - **AI Integration**: Intelligent race engineer agent with tool-calling capabilities
 - **DevOps**: Containerization, deployment, and observability
+- **Cutting-Edge Practices**: Leveraging latest .NET features for performance and developer productivity
 
 ## 🏗️ Architecture
 
@@ -40,11 +41,22 @@ Build a production-grade system that demonstrates senior-level engineering capab
 ## 🚀 Tech Stack
 
 ### Backend
-- **.NET 8.0** - Modern C# backend framework
-- **ASP.NET Core** - RESTful API
-- **Entity Framework Core** - ORM and migrations
+- **.NET 10** - Latest C# 14 backend framework with cutting-edge features
+- **ASP.NET Core** - Minimal APIs with top-level statements
+- **Entity Framework Core** - ORM with primary constructors and collection expressions
 - **PostgreSQL** - Primary database
 - **Redis** - Caching layer
+
+#### Modern C# 14 Features in Use
+- **Primary Constructors** - Simplified class initialization
+- **Collection Expressions** - Concise collection initialization with `[]`
+- **Required Members** - Compile-time safety for object initialization
+- **File-Scoped Namespaces** - Reduced indentation and cleaner code
+- **Global Using Directives** - Implicit usings enabled
+- **Nullable Reference Types** - Enhanced null safety
+- **Record Types** - Immutable DTOs with value semantics
+- **Pattern Matching Enhancements** - Advanced switch expressions
+- **Init-Only Properties** - Immutable object patterns
 
 ### Frontend
 - **React** - UI framework
@@ -134,11 +146,12 @@ Build a production-grade system that demonstrates senior-level engineering capab
 
 ### Prerequisites
 
-- .NET 8.0 SDK
-- Node.js 18+
-- Docker Desktop
-- PostgreSQL 15+
-- Redis (optional for local dev)
+- **.NET 10 SDK** (preview) - `dotnet --version` should show 10.0.x
+- **Node.js 18+** - For frontend development
+- **Docker Desktop** - Container orchestration
+- **PostgreSQL 15+** - Primary database
+- **Redis** (optional for local dev) - Caching layer
+- **Visual Studio 2026+** or **VS Code with C# Dev Kit** - IDE with .NET 10 support
 
 ### Installation
 
@@ -489,9 +502,43 @@ By completing this project, I demonstrate:
 
 ---
 
+## 💡 Why .NET 10 and C# 14?
+
+This project leverages the latest .NET ecosystem to demonstrate:
+
+- **Performance**: .NET 10 performance improvements and optimizations
+- **Developer Productivity**: C# 14 syntax enhancements reduce boilerplate
+- **Type Safety**: Enhanced nullable reference types and required members
+- **Modern Patterns**: Primary constructors, collection expressions, and record types
+- **Future-Ready**: Building with cutting-edge tech shows adaptability
+
+### Example: Modern C# 14 Code
+
+```csharp
+// Primary constructors reduce boilerplate
+public class DriverService(IDriverRepository repository, ILogger<DriverService> logger)
+{
+    public async Task<Driver[]> GetAllDriversAsync()
+    {
+        logger.LogInformation("Fetching all drivers");
+        var drivers = await repository.GetAllAsync();
+        return [..drivers]; // Collection expressions
+    }
+}
+
+// Record types for immutable DTOs
+public record DriverDto(string FirstName, string LastName, int DriverNumber)
+{
+    public required string Nationality { get; init; }
+}
+```
+
+---
+
 **Status**: 🟢 Active Development  
 **Current Phase**: Core Backend (Week 1-2)  
-**Last Updated**: February 16, 2026
+**Last Updated**: February 16, 2026  
+**Framework**: .NET 10 with C# 14
 
 ---
 
